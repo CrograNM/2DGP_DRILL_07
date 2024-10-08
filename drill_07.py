@@ -41,9 +41,10 @@ def reset_world():
 
     running = True
     world = []
+
     grass = Grass() # 잔디생성 -> 클래스가 호출되면, 클래스의 생성자를 찾는다
     world.append(grass)
-    #boy = Boy()
+
     team = [Boy() for i in range(11)]
     world += team
 
