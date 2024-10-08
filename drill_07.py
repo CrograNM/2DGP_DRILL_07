@@ -15,7 +15,7 @@ class Grass:
 
 class Boy:
     def __init__(self):
-        self.x, self.y = random.randint(100, 700), 90
+        self.x, self.y = random.randint(0, 700), 90
         self.frame = random.randint(0, 7)
         self.image = load_image('run_animation.png')
     def update(self):
@@ -26,7 +26,7 @@ class Boy:
 
 class Ball_s:
     def __init__(self):
-        self.x, self.y = random.randint(0, 800), 599
+        self.x, self.y = random.randint(50, 800), 599
         self.dy = random.randint(3, 10)
         self.image = load_image('ball21x21.png')
     def update(self):
@@ -39,7 +39,7 @@ class Ball_s:
 
 class Ball_l:
     def __init__(self):
-        self.x, self.y = random.randint(0, 800), 599
+        self.x, self.y = random.randint(50, 800), 599
         self.dy = random.randint(3, 10)
         self.image = load_image('ball41x41.png')
     def update(self):
