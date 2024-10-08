@@ -1,5 +1,28 @@
-
+from operator import truediv
+import random
 from pico2d import *
+
+# Game object class here
+class Grass:
+    def __init__(self):
+        # 생성자 함수 __init__() : 객체의 초기상태를 설정한다
+        # 초기 : 모양이 없는 빈 틀, 이 self에 속성들을 부여한다.
+        self.image = load_image('grass.png')
+    def update(self):
+        pass
+    def draw(self):
+        self.image.draw(400, 30)
+
+class Boy:
+    def __init__(self):
+        self.x, self.y = random.randint(100, 700), 90
+        self.frame = random.randint(0, 7)
+        self.image = load_image('run_animation.png')
+    def update(self):
+        self.frame = (self.frame + 1) % 8
+        self.x += 5
+    def draw(self):
+        self.image.clip_draw(self.frame*100, 0, 100, 100, self.x, self.y)
 
 def handle_events():
     global running
@@ -10,15 +33,38 @@ def handle_events():
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
 
-
 def reset_world():
-    pass
+    global running
+    global grass
+    global team
+    global world
+
+    running = True
+    world = []
+    grass = Grass() # 잔디생성 -> 클래스가 호출되면, 클래스의 생성자를 찾는다
+    world.append(grass)
+    #boy = Boy()
+    team = [Boy() for i in range(11)]
+    world += team
+
 running = True
 
 def update_world():
+    # grass.update() # 객체의 상태를 업데이트(시뮬레이션)
+    # for boy in team:
+    #     boy.update()
+    for o in world:
+        o.update()
     pass
+
 def render_world():
-    pass
+    clear_canvas()
+    # grass.draw()
+    # for boy in team:
+    #     boy.draw()
+    for o in world:
+        o.draw()
+    update_canvas()
 
 open_canvas()
 
