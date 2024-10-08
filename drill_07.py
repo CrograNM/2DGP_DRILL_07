@@ -77,9 +77,9 @@ def reset_world():
     team = [Boy() for i in range(11)]
     world += team
 
-    ball_s = [Ball_s() for i in range(10)]
+    ball_s = [Ball_s() for i in range(11)]
     world += ball_s
-    ball_l = [Ball_l() for i in range(10)]
+    ball_l = [Ball_l() for i in range(11)]
     world += ball_l
 
 running = True
