@@ -74,8 +74,8 @@ def reset_world():
     grass = Grass() # 잔디생성 -> 클래스가 호출되면, 클래스의 생성자를 찾는다
     world.append(grass)
 
-    team = [Boy() for i in range(11)]
-    world += team
+    team = [Boy() for i in range(11)]   #team 이라는 Boy 클래스의 리스트를 생성한다
+    world += team                       #world 리스트에 team 리스트를 합친다.
 
     ball_s = [Ball_s() for i in range(11)]
     world += ball_s
